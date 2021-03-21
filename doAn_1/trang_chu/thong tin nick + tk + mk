@@ -1,0 +1,28 @@
+thong tin nick + tk + mk
+hoa don + ma nick ̣̣̣̣̣̣̣FK
+drop mk_tknick
+drop hoa don chi tiet
+
+1 them cot da ban
+moi lan thanh toan thi cap nhat cot nay
+
+
+2 khong them cot
+moi lan vao trang chu thi khi lay tat ca nick de hien thi ra thi phai kiem tra da co trong hoa don da thanh toan
+
+SELECT * from thong_tin_nick
+where thong_tin_nick.ma not in(
+        SELECT 
+        hoa_don.ma_nick
+        FROM hoa_don
+        WHERE hoa_don.tinh_trang= 2
+    )
+
+SELECT * from thong_tin_nick
+where thong_tin_nick.ma not in(
+        SELECT 
+        hoa_don_chi_tiet.ma_tai_khoan
+        FROM hoa_don
+        join hoa_don_chi_tiet on hoa_don.ma_hoa_don = hoa_don_chi_tiet.ma_hoa_don
+        WHERE hoa_don_chi_tiet.tinh_trang = 2
+    )

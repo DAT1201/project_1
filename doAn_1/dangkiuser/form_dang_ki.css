@@ -1,0 +1,74 @@
+ #div_tong{
+	width: 100%;
+	height: 700px;
+	background-image: url('../banner_and_slide/nen_dk.jpg');
+	position: relative;
+	background-size: cover;
+	z-index: 99;
+}
+#div_dang_ki{
+	width: 100%;
+	height: auto;
+	/*margin-top: px;*/
+	/*background-color: blue;*/
+}
+#div_tong > #div_dang_ki{
+	position: absolute;
+	top: 100px;
+	/*z-index: 1;*/
+}
+
+div{
+			justify-content: center;
+			display: flex;
+		}
+#form_top{
+	width: 100%;
+	height: 20%;
+	background-color: rgb(26, 255, 248 , 0.5);
+	border:1px #E1A612 solid;
+}
+
+#form_bottom{
+	width: 100%;
+	background-color: rgb(26, 255, 248 , 0.5);
+	border:1px #E1A612 solid;
+}
+
+.error{
+	color:red;
+	font-size: 15px;
+	font-weight: bold;
+}
+	#submit{
+	border: 1px solid #E76F15;
+	width: 150px;
+	height: 40px;
+	background-color: red;
+	font-weight: bold;
+}
+	.input{
+		width: 700px;
+		height: 20px;
+	}
+
+	.gender{
+		height: 25px;
+		width: 50px;
+	}
+	#birthdate{
+		height: 30px;
+	}
+	#footer{
+		width: 100%;
+		height: 150px;
+		background-color: pink;
+		position: absolute;
+		top: 650px;
+		z-index: -1;
+	}
+
+
+
+ 
+

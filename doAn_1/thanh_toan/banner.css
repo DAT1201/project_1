@@ -1,0 +1,75 @@
+#div_tong > #div_banner{
+		width:100%;
+		height:15%;
+		background-image: url('../banner_and_slide/banner2.jpg');
+		border-bottom: 5px groove yellow;
+		/*background-color: orange;*/
+		background-position: center center;
+		background-size: cover;
+		/*position: fixed;*/
+		z-index: 99;
+		opacity: 0.9;
+		/*position: relative;*/
+	}
+	#div_banner > #div_logo{
+		width: 20%;
+		height: 200px;
+		position: absolute;
+		top: 30px;
+		left: 20px;
+		z-index: 99;
+		/*float :left;*/
+	}
+	#div_banner > #div_menu {
+		width: 59%;
+		height: auto;
+		margin: auto;
+		padding-left: 30px;
+
+		/*position: fixed;*/
+		padding-top: 10px;
+		/*float:left;*/
+	}
+	#div_banner{
+		position: fixed;
+		display: block;
+	}
+	#dang_nhap{
+		margin-top: 20px;
+		right: 20px;
+		position: absolute;
+		z-index: 99;
+		border: 5px groove yellow;
+		background-color: red;
+	}
+	#check_login{
+		z-index: 99;
+		position: absolute;
+		right: 5px;
+		top: 7px;
+		width: 20%;
+		font-size: 15px;
+		font-weight: bold;
+		color: red;
+		/*border: 1px solid black;*/
+	}
+	#check_login > #cart_loguot{
+		/*margin-top: -20px;*/
+	}
+	#icon-shopping-cart{
+		width: 50%;
+		float: left;
+		margin-left: 80px;
+		/*position: absolute;
+		top: 0px;*/
+	}
+	.xin_chao{
+		position: absolute;
+		right: 100px;
+		height: 35px;
+		width: 100%;
+		text-align: center;
+		background-color: rgb(151, 253, 252 0.7);
+		z-index: 99;
+
+	}

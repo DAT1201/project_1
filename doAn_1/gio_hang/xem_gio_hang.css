@@ -1,0 +1,43 @@
+th{
+		font-size: 20px;
+	}
+	#div_tong{
+			width: 100%;
+			/*height:auto;*/
+			/*position: fixed;*/
+			background-image: url('../banner_and_slide/nen_tong.jpg');
+			background-size: cover;
+			background-position: center center;
+				/*position: relative;*/
+		}
+		#div_tong > #xem_gio_hang{
+			z-index: 1;
+			top: 100px;
+			width: 100%;
+			/*margin-top: 200px;*/
+			/*position: fixed;*/
+			padding-top: 120px;
+			/*height: 300px;*/
+		}
+		#table_info{
+			border: 1px solid black;
+			/*padding-left: 30px;*/
+			margin-left: 30px;
+			width: 30%;
+			padding: 0px;
+		}
+		.input{
+			width: 100%;
+			/*margin-left: 0px;*/
+			height:30px;
+		}
+		#button:hover{
+			background-color: yellow;
+			color: red;
+		}
+		#button{
+			background-color: red;
+			font-size: 20px;
+			font-weight: bold;
+			color: yellow;
+		}
