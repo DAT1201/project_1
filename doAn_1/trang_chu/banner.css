@@ -56,13 +56,13 @@
 	#check_login > #cart_logout{
 		position: relative;
 		float: left;
-		right: 5px;
+		right: 90px;
 		top: 7px;
 	}
 	#icon-shopping-cart{
 		width: 50%;
 		float: left;
-		/*margin-left: 80px;*/
+		margin-left: 80px;
 		position: absolute;
 		/*top: 0px;*/
 	}

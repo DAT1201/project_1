@@ -21,7 +21,7 @@
 				giá trị:
 			</td>
 			<td>
-				<input type="number" name="gia_tri">
+				<input type="number" name="gia_tri" min='0'>
 			</td>
 		</tr>
 		<br>

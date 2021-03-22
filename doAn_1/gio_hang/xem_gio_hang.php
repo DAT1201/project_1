@@ -44,7 +44,6 @@
 </style>
 <link rel="stylesheet" type="text/css" href="../common/tai_khoan_lien_quan.css">
 <body>
-
 	<script type="text/javascript">
 			<?php 
 				if(isset($_GET['thong_bao_sp'])){ ?>
@@ -120,7 +119,7 @@
 						</div>
 							</td>
 							<td>
-								<a href="delete_sp.php?ma=<?php echo $ma_sp ?>" onclick='return check()'>Xóa</a>
+								<a style='color:red; text-decoration: underline; ' href="delete_sp.php?ma=<?php echo $ma_sp ?>" onclick='return check()'>Xóa</a>
 							</td>
 						</tr>
 					<?php endforeach ?>
@@ -133,19 +132,19 @@
 				<h1 style='background-color: #ff8533; margin-left: 0px; padding-left: 30px;'>Thông tin khách hàng</h1>
 						<table style='border:outset 2px; padding-left: 30px; margin-left: 30px; width: 30%'>
 							<tr>
-								<td>tên khách hàng:</td>
+								<td>Tên khách hàng:</td>
 								<td>
 			  						<input class='input' type="text" name="ten_nguoi_mua" value="<?php echo $each_kh['ten'] ?> " readonly> 
 			  					</td>
 							</tr>
 							<tr>
-								<td>email:</td>
+								<td>Email:</td>
 								<td>
 									 <input class='input' type="text" name="email" value="<?php echo $each_kh['email'] ?>" readonly>
 								</td>
 							</tr>
 							<tr>
-								<td>tên đăng nhập:</td>
+								<td>Tên đăng nhập:</td>
 								<td>
 									<input class='input' type="text" name="tai_khoan" value="<?php echo $each_kh['tai_khoan'] ?>" readonly>
 								</td>
@@ -179,14 +178,6 @@
 				<?php include '../common/tai_khoan_lien_quan.php' ?>
 			</div>	
 	</div>
-	<?php 
-				if(isset($_GET['them_gio_2'])){ ?>
-					<?php
-				echo '<script type="text/javascript">'; 
-			    echo 'alert("thêm giỏ thành công!")'; 
-			    echo '</script>'; 
-			    ?>
-		 <?php } ?>
 	<?php mysqli_close($connect); ?>
 	<script type="text/javascript">
 		function check(){

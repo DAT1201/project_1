@@ -79,6 +79,16 @@
 </style>
 <body>
 	<script type="text/javascript">
+		<?php if(isset($_GET['delete'])){ ?>
+			alert('Xóa tài khoản thành công');
+		<?php } ?>
+	</script>
+	<script type="text/javascript">
+		<?php if(isset($_GET['update'])){ ?>
+			alert('Sửa thông tin tài khoản thành công');
+		<?php } ?>
+	</script>
+	<script type="text/javascript">
 		<?php if(isset($_GET['error_ma'])){ ?>
 			alert('Hãy chọn tài khoản cần thêm thuộc tính!!');
 		<?php } ?>
@@ -118,11 +128,13 @@
 			<a href="view_insert_sp.php" id="nut_dk">Đăng sản phẩm</a>
 		</div>
 		 <div>
-			 <h1>
+			 <h1 style='margin:0px'>
 			 	Tổng sản phẩm:<?php echo $tong_sp; ?>
 			 </h1>
 			 <h3>
-			 	số trang: <?php echo $tong_so_trang ?> 
+			 	Số sản phẩm trên một trang: <?php echo $so_sp_1_trang ?>
+			 	<br>
+			 	Tổng số trang: <?php echo $tong_so_trang ?> 
 			 	<br>
 			 	<?php for($i=1; $i <= $tong_so_trang;$i++){ ?>
 			 		<?php if($trang_hien_tai==$i){ ?>
@@ -147,23 +159,23 @@
 	 </div>
 
 	<table id="table" border="1" width="100%">
-		<th>mã tài khoản</th>
-		<th>ảnh</th>
-		<th>giá</th>
-		<th>thuộc tính</th>
-		<th>rank</th>
-		<th>tài khoản</th>
-		<th>mật khẩu</th>
-		<th>danh mục</th>
-		<th>tình trạng</th>
-		<th>chỉnh sửa sp</th>
+		<th>Mã tài khoản</th>
+		<th>Ảnh</th>
+		<th>Giá</th>
+		<th>Thuộc tính</th>
+		<th>Rank</th>
+		<th>Tài khoản</th>
+		<th>Mật khẩu</th>
+		<th>Danh mục</th>
+		<th>Tình trạng</th>
+		<th>Chỉnh sửa sản phẩm</th>
 		<tr>
 			<?php foreach ($result as $each): ?>
 			<td>
 				<?php echo $each['ma'] ?>
 			</td>
 			<td>
-				<img style="height: 80px;" src="<?php echo $thu_muc_danh_muc_anh_sp . $each['anh'] ?>">
+				<img style="height: 80px; max-width:185px" src="<?php echo $thu_muc_danh_muc_anh_sp . $each['anh'] ?>">
 			</td>
 			<td>
 				<?php echo number_format($each["gia"]) ?>
@@ -225,10 +237,10 @@
 				</td>
 			<?php }else{ ?>
 			<td>
-				<a href="view_update_sp.php?ma=<?php echo $each['ma'] ?>">sửa</a>,
-				<a onclick='return check_delete()' href="process_delete_sp.php?ma=<?php echo $each['ma'] ?>">xóa</a>,
-				<a href="chi_tiet_sp/index.php?ma=<?php echo $each['ma'] ?>">ảnh chi tiết</a>,
-				<a href="thuoc_tinh/index.php?ma=<?php echo $each['ma'] ?>">thuộc tính nick</a>
+				<a style='text-decoration: underline; color:red; ' href="view_update_sp.php?ma=<?php echo $each['ma'] ?>">Sửa</a>,
+				<a style='text-decoration: underline; color:red; ' onclick='return check_delete()' href="process_delete_sp.php?ma=<?php echo $each['ma'] ?>">Xóa</a>,
+				<a style='text-decoration: underline; color:red; ' href="chi_tiet_sp/index.php?ma=<?php echo $each['ma'] ?>">Ảnh chi tiết</a>,
+				<a style='text-decoration: underline; color:red; ' href="thuoc_tinh/index.php?ma=<?php echo $each['ma'] ?>">Thuộc tính nick</a>
 			</td>
 		<?php } ?>
 		</tr>

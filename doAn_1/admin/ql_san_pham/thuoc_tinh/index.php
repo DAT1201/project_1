@@ -9,6 +9,11 @@ if(empty($_GET['ma']))
 	<meta charset="utf-8">
 </head>
 <body>
+	<script type="text/javascript">
+		<?php if(isset($_GET['error_am'])){ ?>
+			alert('Không được nhập giá trị âm');
+		<?php } ?>
+	</script>
 	<?php 
 		include '../../../connect.php';
 		if (isset($_GET['ma'])) {
@@ -18,9 +23,9 @@ if(empty($_GET['ma']))
 		$result = mysqli_query($connect,$sql);
 		// $each=mysqli_fetch_array($result);
 					
-				 ?>
-				 <a href="../index.php">quay lại quản lí sản phẩm</a>
-	 <h1>Thêm thuộc tính</h1>
+	?>
+	<a style='font-size:28px;' href="../index.php">Quay lại trang quản lý sản phẩm</a>
+	<h1>Thêm thuộc tính</h1>
 	<form method="POST" action="process_insert_thuoc_tinh.php">
 		<input type="hidden" name="ma_nick" value="<?php echo $ma_nick ?>">
 		<input type="text" name="thuoc_tinh">

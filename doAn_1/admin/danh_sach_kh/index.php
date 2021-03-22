@@ -66,12 +66,16 @@
 <body>
 	<?php include '../access_admin/check_login_admin.php' ?>
 	<script type="text/javascript">
+		<?php if(isset($_GET['delete'])){ ?>
+			alert('Xóa tài khoản thành công');
+		<?php } ?>
+	</script>
+	<script type="text/javascript">
 		<?php if(isset($_GET['error_superadmin'])){ ?>
 			alert('Bạn cần đăng nhập bằng tài khoản Super Admin!!');
 		<?php } ?>
 	</script>
 	
-	<?php include '../access_admin/check_login_admin.php'; ?>
 	<?php require '../../connect.php';
 		$sql = "select * from khach_hang";
 		$result = mysqli_query($connect,$sql);
@@ -82,7 +86,10 @@
 				<a href="../index.php" style="font-size: 18px;">quay lại trang chủ quản lí</a>
 			</div>
 			<div id="div_logo">
-				<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
+				
 			</div>
 			<div id='div_menu'>
 				<?php include 'menu.php' ?>
@@ -95,11 +102,11 @@
 		<div id="table">
 			<table width="100%" border="2px">
 	  	<th>Tên Đăng Nhập</th>
-	  	<th>email</th>
-	  	<th>tên</th>
-	  	<th>ngày sinh</th>
-	  	<th>giới tính</th>
-	  	<th>chỉnh sửa khách hàng</th>
+	  	<th>Email</th>
+	  	<th>Tên</th>
+	  	<th>Ngày sinh</th>
+	  	<th>Giới tính</th>
+	  	<th>Chỉnh sửa khách hàng</th>
 	  	<?php foreach ($result as $each): ?>
 	  		<tr>
 	  			<td>
@@ -112,21 +119,29 @@
 	  				<?php echo $each['ten']; ?>
 	  			</td>
 	  			<td>
-	  				<?php echo $each['ngay_sinh']; ?>
+	  				<?php echo date_format(date_create($each['ngay_sinh']),'d-m-Y') ?>
 	  			</td>
 	  			<td>
 	  				<?php echo $each['gioi_tinh']; ?>
 	  			</td>
 	  		
 	  			<td>
-	  				<a style='text-decoration: underline; color:red; ' href="view_update_kh.php?ma=<?php echo $each['ma'] ?>">sửa</a>,
-	  				<a style='text-decoration: underline; color:red; ' href="process_delete_kh.php?ma=<?php echo $each['ma'] ?>">xóa</a>
+	  				<a style='text-decoration: underline; color:red; ' href="view_update_kh.php?ma=<?php echo $each['ma'] ?>">Sửa</a>,
+	  				<a onclick='return check_delete()' style='text-decoration: underline; color:red; ' href="process_delete_kh.php?ma=<?php echo $each['ma'] ?>">Xóa</a>
 	  			</td>
 	  		</tr>
 	  	<?php endforeach ?>
 	  	<?php mysqli_close($connect) ?>
 	  </table>
 		</div>
-	  
+	  <script type="text/javascript">
+	  	function check_delete(){
+	  		if(confirm('Xác nhận xóa tài khoản??')){
+
+	  		}else{
+	  			return false;
+	  		}
+	  	}
+	  </script>
 </body>
 </html>

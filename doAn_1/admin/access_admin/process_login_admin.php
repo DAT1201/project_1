@@ -9,11 +9,11 @@ $mat_khau = md5($mat_khau);
 
 $dem_ban_ghi = mysqli_num_rows($result);
  if ($dem_ban_ghi == 1) {
- 	// if(isset($_SESSION['user'])){
- 	// 	unset($_SESSION['ten']);
- 	// 	unset($_SESSION['ma']);
- 	// 	unset($_SESSION['user']);
- 	// }
+ 	if(isset($_SESSION['user'])){
+ 		unset($_SESSION['ten']);
+ 		unset($_SESSION['ma']);
+ 		unset($_SESSION['user']);
+ 	}
  	$each = mysqli_fetch_array($result);
  	$_SESSION['cap_do'] = $each['cap_do'];
  	$_SESSION['ma_admin'] = $each['ma'];

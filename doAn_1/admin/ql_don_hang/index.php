@@ -1,10 +1,9 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" type="text/css" href="san_pham_danh_muc.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style type="text/css">
@@ -125,24 +124,27 @@
 		margin-left: 30px;
 	}
 </style>
-</style>
 <body>
 <script type="text/javascript">
 	<?php if(isset($_GET['error_huy_don_hang'])){ ?>
 		alert('Đơn hàng đã được duyệt!!');
+	<?php } ?>
+	<?php if(isset($_GET['error_duyet_don_hang'])){ ?>
+		alert('Đơn hàng đã bị hủy!!');
 	<?php } ?>
 </script>
 
 <?php include '../access_admin/check_login_admin.php'; ?>
 <?php include '../../connect.php'; ?>
 <?php 
-$tim_kiem='';
-if(isset($_GET['tim_kiem'])){
-	$tim_kiem = $_GET['tim_kiem'];
-}
-	$sql = "select hoa_don.*, thong_tin_nick.gia from hoa_don join thong_tin_nick on hoa_don.ma_nick = thong_tin_nick.ma where hoa_don.ma_khach_hang like '%$tim_kiem%' or hoa_don.ten_nguoi_mua like '%$tim_kiem%' or hoa_don.ma_nick like '%$tim_kiem%'";
+	$tim_kiem = '';
+	if(isset($_GET['tim_kiem'])){
+		$tim_kiem = $_GET['tim_kiem'];
+	}
+	$sql = "select hoa_don.*, thong_tin_nick.gia from hoa_don join thong_tin_nick on hoa_don.ma_nick = thong_tin_nick.ma where hoa_don.ma_khach_hang like '%$tim_kiem%' or hoa_don.ten_nguoi_mua like '%$tim_kiem%' or hoa_don.ma_hoa_don like '%$tim_kiem%' or hoa_don.ma_nick like '%$tim_kiem%' order by hoa_don.tinh_trang asc, hoa_don.thoi_gian_mua asc";
 	$result = mysqli_query($connect, $sql);
 ?>
+
 
 <div id='div_tong_admin'>
 		<div id="div_banner">
@@ -150,27 +152,34 @@ if(isset($_GET['tim_kiem'])){
 				<a href="../index.php" style="font-size: 18px;">quay lại trang chủ quản lí</a>
 			</div>
 			<div id="div_logo">
-				<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
+				
 			</div>
 			<div id='div_menu'>
-				<?php include 'menu.php' ?>
+				<?php include '../danh_sach_kh/menu.php' ?>
 			</div>
 		</div>
-		<div>
+		<h1 style="text-align: center;color: blue; ">Quản lý đơn hàng</h1>
+		 <div>
 		 	<form class="example"><h1>Tìm kiếm</h1>
-			  <input id="tim_kiem" type="search" placeholder="Tìm kiếm theo mã nick, mã khách hàng hoặc tên..." name="tim_kiem" value="<?php echo $tim_kiem ?>">
+			  <input id="tim_kiem" type="search" placeholder="Tìm kiếm theo mã hoặc tên..." name="tim_kiem" value="<?php echo $tim_kiem ?>">
 			  <button><i class="fa fa-search"></i></button>
 			</form>
 		 </div>
 		<div>
 			<table border='2px' style='width: 100%; border: 3px groove blue; text-align: center; height: auto; font-size: 20px;'>
-				<caption style='font-size: 28px; font-weight: bold; '>Quản lý đơn hàng</caption>
+				
 				<tr>
 					<th>
-						Mã nick
+						Mã khách hàng
 					</th>
 					<th>
 						Tên khách hàng
+					</th>
+					<th>
+						Mã nick
 					</th>
 					<th>
 						Giá
@@ -188,10 +197,13 @@ if(isset($_GET['tim_kiem'])){
 				<?php foreach ($result as $each) { ?>
 					<tr>
 						<td>
-							<?php echo $each['ma_nick'] ?>
+							<?php echo $each['ma_khach_hang'] ?>
 						</td>
 						<td>
 							<?php echo $each['ten_nguoi_mua'] ?>
+						</td>
+						<td>
+							<?php echo $each['ma_nick'] ?>
 						</td>
 						<td>
 							<?php echo $each['gia'] ?>
@@ -202,7 +214,7 @@ if(isset($_GET['tim_kiem'])){
 									echo "Đang chờ duyệt";
 								}elseif($each['tinh_trang']==2){
 									echo "Đã duyệt";
-								}elseif ($each['tinh_trang']==3) {
+								}elseif($each['tinh_trang']==3){
 									echo "Đã hủy";
 								}
 							?>
@@ -214,7 +226,7 @@ if(isset($_GET['tim_kiem'])){
 						</td>
 					<?php if($each['tinh_trang']==1){ ?>
 						<td>
-							<a style='color:green; text-decoration:underline;' href="duyet_don_hang.php?ma_nick=<?php echo $each['ma_nick'] ?>&tinh_trang=2">
+							<a style='color:green; text-decoration:underline;' href="duyet_don_hang.php?ma_nick=<?php echo $each['ma_nick'] ?>&tinh_trang=2&ma_hoa_don=<?php echo $each['ma_hoa_don'] ?>">
 								Duyệt
 							</a>	
 						</td>
@@ -228,11 +240,10 @@ if(isset($_GET['tim_kiem'])){
 							<?php echo "<b style='font-size:24px;'>Đã duyệt</b>" ?>
 						</td>
 					<?php }elseif($each['tinh_trang']==3){ ?>
-						<td>
-								<?php echo "<b style='font-size:24px;'>Đã hủy"; ?>
+						<td colspan="2">
+							<?php echo "<b style='font-size:24px;'>Đã hủy</b>" ?>
 						</td>
-					
-					<?php } ?>	
+						<?php } ?>
 					</tr>
 				<?php } ?>
 				

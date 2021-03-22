@@ -92,7 +92,7 @@
 				<tr>
 					<td>ảnh:</td>
 					<td>
-						<input type="file" id="anh" name="anh" style="font-size: 20px;">
+						<input type="file" id="anh" accept='image/*' name="anh" style="font-size: 20px;">
 						<span class="error" id="error_anh"></span>
 					</td>
 				</tr>

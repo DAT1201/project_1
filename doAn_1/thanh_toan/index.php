@@ -45,7 +45,8 @@
 					<tr>
 						
 						<th>Tên Người mua</th>
-						<th>trạng thái</th>
+						<th>Mã tài khoản</th>
+						<th>Trạng thái</th>
 						<th>Giá</th>
 						<th>Hủy</th>
 						
@@ -56,21 +57,23 @@
 							<?php echo $each['ten_nguoi_mua'] ?>	
 						</td>
 						<td>
+							<?php echo $each['ma_nick'] ?>
+						</td>
+						<td>
 							<?php 
 								if($each['tinh_trang']==1){
 									echo "Đang chờ duyệt";
 								}else if($each['tinh_trang']==2){
 									echo "Đã được duyệt";
-								}elseif ($each['tinh_trang']==3) {
-									echo("Đơn đã hủy, bạn cần đầy đủ thông tin, xin hãy đặt lại");
+								}elseif($each['tinh_trang']==3){
+									echo "Đơn hàng đã bị hủy";
 								}
 							 ?>
 						</td>
 						<td>
-							<?php echo $each['gia'] ?>
-							<?php if($each['tinh_trang']==1){
-								$tong_tien += $each['gia'];
-							} ?>
+							<?php echo number_format($each['gia']) ?>
+							<?php $tong_tien += $each['gia']; ?>
+						<sup>đ</sup>
 						</td>
 						
 						<td>
@@ -84,7 +87,8 @@
 	<?php endforeach ?>
 					
 					<td colspan="7" style="font-weight: bold;">
-						TỔNG TIỀN CẦN THANH TOÁN: <?php echo $tong_tien ?>
+						TỔNG TIỀN CẦN THANH TOÁN: <?php echo number_format($tong_tien) ?>
+						<sup>đ</sup>
 						<br>
 						<p>
 							<a href="" style="font-size: 15px; color: blue;text-decoration:underline; ">nếu không đủ tiền vui lòng nạp thẻ tại đây</a>

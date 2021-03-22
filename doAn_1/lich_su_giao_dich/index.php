@@ -55,7 +55,9 @@
 						<th>Thời gian mua</th>
 						<th>Mã Nick</th>
 						<th>Giá</th>
-						<th>trạng thái</th>
+						<th>Trạng thái</th>
+						<!-- <th>tài khoản nick</th>
+						<th>mật khẩu nick</th> -->
 						
 					</tr>
 					<?php foreach ($result as $each): ?>
@@ -64,7 +66,7 @@
 							<?php echo $each['ten_nguoi_mua'] ?>	
 						</td>	
 						<td>
-							<?php echo date_format(date_create($each['thoi_gian_mua']),'d-m-Y H:i:s') ?>
+							<?php echo date_format(date_create($each['thoi_gian_mua']),'H:i:s d-m-Y') ?>
 						</td>
 						<td>
 							<?php echo $each['ma_nick'] ?>
@@ -75,14 +77,36 @@
 						<td>
 							<?php 
 								if($each['tinh_trang']==1){
-									echo "đang chờ thanh toán";
+									echo "Đang chờ duyệt";
 								}else if($each['tinh_trang']==2){
-									echo "đã xác nhận";
-								}elseif ($each['tinh_trang']==3) {
-									echo "Đã bị hủy!";
+									echo "Giao dịch thành công";
+								}elseif($each['tinh_trang']==3){
+									echo "Đơn hàng đã bị hủy";
 								}
 							 ?>
 						</td>
+						<!-- <td>
+							<?php 
+								if($each['tinh_trang']==1){
+									echo "Đang chờ duyệt";
+								}else if($each['tinh_trang']==2){
+									echo $each['tai_khoan'];
+								}elseif($each['tinh_trang']==3){
+									echo "Đơn hàng đã bị hủy";
+								}
+							 ?>
+						</td>
+						<td>
+							<?php 
+								if($each['tinh_trang']==1){
+									echo "Đang chờ duyệt";
+								}else if($each['tinh_trang']==2){
+									echo $each['mat_khau'];
+								}elseif($each['tinh_trang']==3){
+									echo "Đơn hàng đã bị hủy";
+								}
+							 ?>
+						</td> -->
 					</tr>
 	<?php endforeach ?>
 	<?php }else{ ?>

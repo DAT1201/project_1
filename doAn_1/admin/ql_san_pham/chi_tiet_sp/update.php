@@ -35,7 +35,7 @@
 			<tr>
 				<td>ảnh mới</td>
 				<td>
-					<input type="file" name="anh_moi">
+					<input type="file" accept="image/*" name="anh_moi">
 				</td>
 			</tr>
 			

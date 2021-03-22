@@ -4,5 +4,5 @@
 	$sql = "delete from khach_hang where ma='$ma'";
 	mysqli_query($connect,$sql);
 	mysqli_close($connect);
-	header('location:index.php');
+	header('location:index.php?delete');
  ?>

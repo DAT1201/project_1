@@ -81,7 +81,7 @@ JOIN rank on rank.ma = thong_tin_nick.ma_rank
 where thong_tin_nick.ma not in(
         SELECT 
         hoa_don.ma_nick
-        FROM hoa_don where (hoa_don.tinh_trang=2 or hoa_don.tinh_trang=1 or hoa_don.tinh_trang=3)) and
+        FROM hoa_don where (hoa_don.tinh_trang=2 or hoa_don.tinh_trang=1)) and
        (rank.rank like '%$tim_kiem%' or thong_tin_nick.ma like '%$tim_kiem%')";
 		if(isset($_GET['ma_danh_muc'])){
 			$ma_danh_muc = $_GET['ma_danh_muc'];
@@ -112,12 +112,17 @@ where thong_tin_nick.ma not in(
 			  <?php 
 				 if(isset($_GET['ma_danh_muc'])){ ?>
 						<input type="hidden" name="ma_danh_muc" value="<?php echo $_GET['ma_danh_muc'] ?>">
+						<?php $ma_danh_muc = $_GET['ma_danh_muc']; ?>
 			   <?php } ?>
 			</form>
 	 </div>
 	<div id="div_san_pham">
-	
-		 <?php 
+		<script type="text/javascript">
+			<?php if(isset($_GET['them_gio'])){ ?>
+				alert('Thêm nick vào giỏ thành công! nhấn vào giỏ hàng để thanh toán.');
+			<?php } ?>
+		</script>
+		<?php 
 		 	$sql = "select * from hoa_don";
 		 	mysqli_query($connect,$sql);
 		  ?>
@@ -127,8 +132,8 @@ where thong_tin_nick.ma not in(
 						mã số: <?php echo $each['ma']; ?>
 					</div>
 					<div id="anh_sp">
-						<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>">
-							<img  style="width: 90%;margin: auto;height: 150px;border: 3px groove yellow;" src="<?php echo $thu_muc_danh_muc_anh_sp .$each['anh'] ?>">
+						<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $ma_danh_muc ?>">
+							<img  style="width: 90%;margin: auto;height: 200px;border: 3px groove yellow;" src="<?php echo $thu_muc_danh_muc_anh_sp .$each['anh'] ?>">
 						</a>
 						
 					</div>
@@ -166,17 +171,17 @@ where thong_tin_nick.ma not in(
 						</div>
 					</div>
 					<div id="gia">
-						Gía:
+						Giá:
 						<?php echo number_format($each['gia'])?>
 						<sup>đ</sup>
 					</div>
 					<div id="cuoi">
 						<div class="chi_tiet">
 							<div class="a" style="background-color: rgb(244, 0, 25,0.5);">
-								<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>">chi tiết</a>
+								<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $ma_danh_muc ?>">Chi tiết</a>
 							</div>
 							<div class="a" style="background-color: rgb(138, 254, 0,0.5);">
-								<a href="../gio_hang/gio_hang.php?ma=<?php echo $each['ma'] ?>">thêm giỏ</a>
+								<a href="../gio_hang/gio_hang.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $ma_danh_muc ?>">Thêm giỏ</a>
 							</div>
 							
 						</div>

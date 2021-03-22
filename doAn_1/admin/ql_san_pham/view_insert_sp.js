@@ -40,6 +40,17 @@ function check_sp() {
 		error_anh.innerHTML='bạn chưa chọn ảnh sản phẩm';
 		check_error = true;
 	}
+	// validate ảnh
+    var ten_file = document.getElementById("anh").value;
+    var indexDot = ten_file.lastIndexOf(".") + 1;
+    var duoi_file = ten_file.substr(indexDot, ten_file.length).toLowerCase();
+    if (duoi_file=="jpg" || duoi_file=="jpeg" || duoi_file=="png" || duoi_file=="gif" || duoi_file=="webp"){
+        
+    }else{
+        document.getElementById('error_anh').innerHTML = 'Hãy chọn file có dạng sau (jpg, jpeg, png, gif)';
+        check_error = true;
+    }   
+
 	if (check_error) {
 		return false;
 	}

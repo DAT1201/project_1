@@ -14,6 +14,4 @@ if($each['tinh_trang']==1){
 }elseif($each['tinh_trang']==2){
 	header('location:index.php?error_huy_don_hang');
 }
-
-
 ?>

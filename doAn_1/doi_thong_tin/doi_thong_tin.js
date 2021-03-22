@@ -3,10 +3,10 @@ function check_tt(){
 	var ten = document.getElementById('name').value;
 	var email = document.getElementById('email').value;
 
-	var ten_regex = /^[a-zA-Z][\s]$/;
+	var ten_regex = /^[a-zA-Z]{1,30}$/;
 	var email_regex =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{3,4})+$/;
 
-	if(ten != ''){
+	if(ten_regex.test(ten)){
 		document.getElementById('error_ten').innerHTML = '';
 	}else{
 		document.getElementById('error_ten').innerHTML = 'Tên không được để trống';

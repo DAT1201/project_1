@@ -8,4 +8,4 @@
 	$sql2 = "delete from thong_tin_nick where ma ='$ma'";
 	$result2 = mysqli_query($connect,$sql2);
 	mysqli_close($connect);
-	header('location:index.php');
+	header('location:index.php?delete');

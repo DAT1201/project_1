@@ -6,12 +6,9 @@
 <style type="text/css">
 	.display{
 		position: absolute;
-		right: -30px;
-		/*top: 7px;*/
-		/*left: 100px;*/
-		margin-left: 130px;
-
-		padding: 5px;
+		top: 7px;
+		left: 100px;
+		padding: 15px 33px;
  		background-color: rgb(255, 37, 0 , 0.2) ;
     	border: 5px groove yellow;
 		color: rgb(30, 4, 153);

@@ -54,19 +54,28 @@
 		top: 50px;
 		right: 40px;
 	}
+	table{
+	width: 100%;
+	text-align: center;
+	border: 3px groove blue;;
+	height: auto;
+	font-size: 20px; 
+	}
 </style>
 <body>
-<?php include '../access_admin/check_login_admin.php'; ?>
+<?php include '../access_admin/check_login_admin.php' ?>
 <div id='div_tong_admin'>
 		<div id="div_banner">
 			<div class="nut_dk_2">
 				<a href="../index.php" style="font-size: 18px;">quay lại trang chủ quản lí</a>
 			</div>
 			<div id="div_logo">
-				<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
 			</div>
 			<div id='div_menu'>
-				<?php include '../ql_don_hang/menu.php' ?>
+				<?php include '../danh_sach_kh/menu.php'; ?>
 			</div>
 		</div>
 		<?php 
@@ -89,11 +98,12 @@
 			$tong_da_ban=0;
 		 ?>
 		<table border="1" width="100%" style="text-align: center;">
+			<caption style='font-size: 30px; font-weight: bold;'>Thống kê doanh thu</caption>
 			<th>Doang thu theo tháng</th>
 			<th>Số lượng đã bán</th>
 			<th>Doanh thu dự kiến</th>
-			<th>số lượng dự kiến bán</th>
-			<th>tháng</th>
+			<th>Số lượng dự kiến bán</th>
+			<th>Tháng</th>
 			<?php foreach ($result as $each): ?>
 				<tr>
 					<td>

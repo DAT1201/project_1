@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+?>
+<?php include '../../access_admin/check_superadmin.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,6 +65,13 @@
 		/*top: 30px;
 		right: 40px;*/
 	}
+	table{
+	width: 100%;
+	text-align: center;
+	border: 3px groove blue;;
+	height: auto;
+	font-size: 20px; 
+	}
 </style>
 <body>
 	<div id="div_tong_admin">
@@ -76,10 +87,13 @@
 			
 	
 			<div id="div_logo">
-				<img src="../../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
+				
 			</div>
 			<div id='div_menu'>
-				<?php include '../../danh_sach_kh/menu.php' ?>
+				<?php include 'menu.php' ?>
 			</div>
 		</div>
 	
@@ -90,15 +104,15 @@
 	  ?>
 
 	  <table width="100%" border="1">
-	  	<th>tên nhân viên</th>
-	  	<th>email</th>
-	  	<th>giới tính</th>
-	  	<th>tài khoản nhân viên</th>
-	  	<th>ngày sinh</th>
-	  	<th>cấp độ</th>
+	  	<th>Tên nhân viên</th>
+	  	<th>Email</th>
+	  	<th>Giới tính</th>
+	  	<th>Tài khoản nhân viên</th>
+	  	<th>Ngày sinh</th>
+	  	<th>Cấp độ</th>
 	  	<?php 
 	  		if($each_cap_do['cap_do']== 'superadmin'){ ?>
-				<th>chỉnh sửa nhân viên</th>
+				<th>Chỉnh sửa nhân viên</th>
 	  		<?php } ?>
 	  	<?php foreach ($result as $each): ?>
 	  		<tr>
@@ -124,8 +138,8 @@
 		  				<td></td>
 		  			<?php }else{ ?>
 		  				<td>
-		  					<a href="view_update_nv.php?ma=<?php echo $each['ma'] ?>">sửa</a>,
-		  					<a href="process_delete_nv.php?ma=<?php echo $each['ma'] ?>">xóa</a>
+		  					<a style='text-decoration: underline; color:red; ' href="view_update_nv.php?ma=<?php echo $each['ma'] ?>">Sửa</a>,
+		  					<a style='text-decoration: underline; color:red; ' onclick='return check_delete()' href="process_delete_nv.php?ma=<?php echo $each['ma'] ?>">Xóa</a>
 		  				</td>
 		  		<?php } ?>	
 
@@ -133,5 +147,14 @@
 	  	<?php endforeach ?>
 	  	<?php mysqli_close($connect) ?>
 	  </table>
+	  <script type="text/javascript">
+	  	function check_delete(){
+	  		if(confirm('Xác nhận xóa??')){
+
+	  		}else{
+	  			return false;
+	  		}
+	  	}
+	  </script>
 </body>
 </html>

@@ -66,9 +66,9 @@
 			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_2.png"><br>
 			<span class="font" style="color: orange;">2.Kích hoạt mail</span><br>
 			<span class="font" style="font-size: 25">- Ấn vào Xác Thực để kích hoạt Email.</span><br>
-			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_3.png"><br>
+			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_4.png"><br>
 			<span class="font" style="font-size: 25">- Nhấn thay đổi Email </span><br>
-			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_3.png"><br>
+			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_5.png"><br>
 			<span class="font" style="font-size: 25">- Làm theo hướng dẫn như hình</span><br>
 			<img style="width: 90%; height:500px; margin: auto;text-align: center;" src="anh_bao_mat/image_3.png"><br>
 			<span class="font" style="font-size: 25">BƯỚC 4 : NHẤN VÀO CHỮ " Cập Nhật " SAU ĐÓ ĐĂNG NHẬP EMAIL ĐÃ THÊM VÀO TRÊN: 

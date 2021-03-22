@@ -76,6 +76,9 @@ where thong_tin_nick.ma not in(
         $thu_muc_danh_muc_anh_sp = '../anh_san_pham/';
 		$result = mysqli_query($connect,$sql);
 
+		// $each_dm = mysqli_fetch_array();
+		// $ma_danh_muc = $each_dm['ma_danh_muc'];
+
 		 ?>
 	<div id="div_san_pham">
 		<?php 
@@ -96,8 +99,8 @@ where thong_tin_nick.ma not in(
 						mã số: <?php echo $each['ma']; ?>
 					</div>
 					<div id="anh_sp">
-						<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>">
-							<img  style="width: 90%;margin: auto;height: 130px;border: 3px groove yellow;" src="<?php echo $thu_muc_danh_muc_anh_sp .$each['anh'] ?>">
+						<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $each['ma_danh_muc'] ?>">
+							<img  style="width: 90%;margin: auto;height: 200px;border: 3px groove yellow;" src="<?php echo $thu_muc_danh_muc_anh_sp .$each['anh'] ?>">
 						</a>
 						
 					</div>
@@ -135,17 +138,17 @@ where thong_tin_nick.ma not in(
 						</div>
 					</div>
 					<div id="gia">
-						Gía:
-						<?php echo $each['gia'] ?>
+						Giá:
+						<?php echo number_format($each['gia'])?>
 						<sup>đ</sup>
 					</div>
 					<div id="cuoi">
 						<div class="chi_tiet">
 							<div class="a" style="background-color: rgb(244, 0, 25,0.5);">
-								<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>">chi tiết</a>
+								<a href="../chi_tiet_nick/index.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $each['ma_danh_muc'] ?>">chi tiết</a>
 							</div>
 								<div class="a" style="background-color: rgb(138, 254, 0,0.5);">
-								<a href="../gio_hang/gio_hang.php?ma=<?php echo $each['ma'] ?>">thêm giỏ</a>
+								<a href="../gio_hang/gio_hang.php?ma=<?php echo $each['ma'] ?>&ma_danh_muc=<?php echo $each['ma_danh_muc'] ?>">thêm giỏ</a>
 							</div>
 							
 						</div>

@@ -28,11 +28,11 @@ $mat_khau = md5($mat_khau);
 
   if ($so_ket_qua==1){
     session_start();
-    // if(isset($_SESSION['cap_do'])){
-    //   unset($_SESSION['cap_do']);
-    //   unset($_SESSION['ma_admin']);
-    //   unset($_SESSION['ten_admin']);
-    // }
+    if(isset($_SESSION['cap_do'])){
+      unset($_SESSION['cap_do']);
+      unset($_SESSION['ma_admin']);
+      unset($_SESSION['ten_admin']);
+    }
   	$each = mysqli_fetch_array($result);
   	$_SESSION['ma'] = $each['ma'];
     $_SESSION['ten'] = $each['ten'];

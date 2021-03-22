@@ -26,7 +26,7 @@
 			    ?>
 		<?php } ?> 
 
-	<?php if(empty($_SESSION['ten'])){ ?>
+	<?php if(empty($_SESSION['user'])){ ?>
 		<div id="dang_nhap">
 			<?php include 'login.php'; ?>
 		</div>
@@ -45,9 +45,10 @@
 		<?php } ?>
 	</div>
 	<div id="div_logo">
-		<img src="../banner_and_slide/logo24h.png" style="width: 20%;height: 50px;image-rendering: pixelated;position: fixed;">
+		<a href="http://localhost/doAn_1/trang_chu/index.php">
+			<img src="../banner_and_slide/logo24h.png" style="width: 20%;height: 50px;image-rendering: pixelated;position: fixed;">
+		</a>
 	</div>
-	
 	<div id='div_menu'>
 		<?php include '../common/menu.php' ?>
 	</div>

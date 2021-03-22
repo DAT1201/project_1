@@ -24,7 +24,7 @@
 		width: 59%;
 		height: auto;
 		margin: auto;
-		/*padding-left: 30px;*/
+		padding-left: 30px;
 
 		/*position: fixed;*/
 		padding-top: 10px;
@@ -67,8 +67,6 @@
 	}
 	.xin_chao{
 		height: 35px;
-		position: absolute;
-		right: 100px;
 		width: 100%;
 		text-align: center;
 		background-color: rgb(151, 253, 252 0.7);

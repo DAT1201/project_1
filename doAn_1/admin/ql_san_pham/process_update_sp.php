@@ -24,4 +24,4 @@
 	$sql = "update thong_tin_nick set gia='$gia',anh='$ten_anh',ma_rank='$ma_rank',ma_danh_muc='$ma_danh_muc',tai_khoan='$tai_khoan_nick',mat_khau='$mat_khau_nick' where ma ='$ma' ";
 	mysqli_query($connect,$sql);
 	mysqli_close($connect);
-	header('location:index.php');
+	header('location:index.php?update');

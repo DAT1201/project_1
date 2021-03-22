@@ -19,7 +19,7 @@ ul {
     }
     a{
       text-decoration: none;
-      font-size: 22px;
+      font-size: 23px;
       padding: 5px;
       font-weight: bold;
       color: #000000;
@@ -41,7 +41,7 @@ ul {
   overflow: hidden;
   background-color: rgb(255, 37, 0 , 0.2) ;
   border: 5px groove yellow;
-  width: 97%;
+  width: 87%;
   text-align: center;
   margin: auto;
 }
@@ -110,7 +110,7 @@ ul {
     </li>
     <?php if (isset($_SESSION['ma'])){ ?>
         <li>
-           <a href="../doi_thong_tin">Cài đặt</a>
+           <a href="../doi_thong_tin">Sửa thông tin</a>
         </li>
     <?php }else{ ?>
         <li>

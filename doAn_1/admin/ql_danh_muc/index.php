@@ -32,7 +32,10 @@
 				<a href="../index.php" style="font-size: 18px;">quay lại trang chủ quản lí</a>
 			</div>
 			<div id="div_logo">
-				<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
+				
 			</div>
 			<div id='div_menu'>
 				<?php include '../danh_sach_kh/menu.php' ?>
@@ -42,28 +45,34 @@
 			<a href="view_insert_danh_muc.php" id="nut_dk">Đăng danh mục</a>
 		</div>
 		<div>
-					<h1>danh sách danh mục</h1>
+			<h1>Danh sách danh mục</h1>
 			 <h1>
 			 	Tổng sản phẩm:<?php echo $tong_sp; ?>
 			 </h1>
 			 <h3>
-			 	tổng số trang: <?php echo $tong_so_trang ?>
+			 	Số danh mục trên một trang: <?php echo $so_sp_1_trang ?>
 			 	<br>
-			 	9 danh mục / 1 trang! 
+			 	Tổng số trang: <?php echo $tong_so_trang ?>
 			 	<br>
 			 	<?php for($i=1; $i <= $tong_so_trang;$i++){ ?>
-			 		<a href="?trang=<?php echo $i ?>">
-			 			<?php echo $i; ?>
-			 		</a>
+			 		<?php if($trang_hien_tai==$i){ ?>
+				 		<a style='color:red; text-decoration: underline; ' href="?trang=<?php echo $i ?>">
+				 			<?php echo $i; ?>
+				 		</a>
+			 		<?php }else{ ?>
+			 			<a href="?trang=<?php echo $i ?>">
+				 			<?php echo $i; ?>
+				 		</a>
+			 		<?php } ?>
 			 	<?php } ?>
 			 </h3>
 		</div>
 	 
 
 	 <table id="table" border="2px">
-	 	<th>tiêu đề danh mục</th>
-	 	<th>ảnh</th>
-	 	<th>chỉnh sửa</th>
+	 	<th>Tiêu đề danh mục</th>
+	 	<th>Ảnh</th>
+	 	<th>Chỉnh sửa</th>
 	 	<tr>
 	 		<?php foreach ($result as $each): ?>
 	 		<td>
@@ -73,8 +82,8 @@
 	 			<img style="height: 200px;" src="<?php echo $thu_muc_anh_danh_muc . $each['anh_danh_muc'] ?>">
 	 		</td>
 	 		<td>
-	 			<a href="view_update_danh_muc.php?ma=<?php echo $each['ma'] ?>">sửa</a>,
-				<a href="process_delete_danh_muc.php?ma=<?php echo $each['ma'] ?>">xóa</a>
+	 			<a style='text-decoration: underline; color:red; ' href="view_update_danh_muc.php?ma=<?php echo $each['ma'] ?>">Sửa</a>,
+				<a style='text-decoration: underline; color:red; ' href="process_delete_danh_muc.php?ma=<?php echo $each['ma'] ?>">Xóa</a>
 	 		</td>
 	 	</tr>
 	 <?php endforeach ?>

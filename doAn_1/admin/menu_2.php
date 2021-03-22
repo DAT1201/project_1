@@ -46,9 +46,32 @@
 <ul id='menu'>
 	<li>
 		<a href="../trang_chu/index.php">
-			Trang chủ khách hàng
+			Trang chủ
 		</a>
 	</li>
+	<li>
+		<a href="">
+			Thông tin
+			 chủ shop
+		</a>
+	</li>
+	<li>
+		<a href="">
+			Hướng dẫn
+		</a>
+		<ul style="border: 1px solid yellow;background-color: #5ae8c7; " >
+			<li>
+				<a href="">Hướng dẫn mua tài khoản</a>
+			</li>
+			<li>
+				<a href="../huong_dan_bao_mat/index.php">Hướng dẫn bảo mật</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="">
+			Nạp thẻ
+		</a>
 	</li>
 </ul>
 </body>

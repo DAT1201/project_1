@@ -1,3 +1,4 @@
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,9 +45,31 @@
 </head>
 <body>
 <ul id='menu'>
+	<?php if($_SESSION['cap_do'] == 'superadmin'){ ?>
 	<li>
-		<a href="../../trang_chu/index.php">
-			Trang chủ khách hàng
+		<a href="../ql_nhan_vien/danh_sach_nv/index.php">
+			Nhân viên
+		</a>
+	</li>
+	<?php } ?>
+	<li>
+		<a href="../danh_sach_kh/index.php">
+			Khách hàng
+		</a>
+	</li>
+	<li>
+		<a href="../ql_san_pham/index.php">
+			Sản phẩm
+		</a>
+	</li>
+	<li>
+		<a href="../ql_danh_muc/index.php">
+			Danh mục
+		</a>
+	</li>
+	<li>
+		<a href="../thong_ke/index.php">
+			Thống kê
 		</a>
 	</li>
 </ul>

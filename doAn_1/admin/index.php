@@ -9,6 +9,10 @@
 <body>
 	<script type="text/javascript">
 			<?php 
+				if(isset($_GET['error_superadmin'])){ ?>
+				alert('Cần đăng nhập bằng tài khoản superadmin!!');
+			<?php } ?>
+			<?php 
 				if(isset($_GET['error_admin'])){ ?>
 				alert('kiểm tra lại Tài khoản hoặc mật khẩu!');
 			<?php } ?>
@@ -35,7 +39,9 @@
 			<?php } ?>
 			
 			<div id="div_logo">
-				<img src="../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				<a href="http://localhost/doAn_1/trang_chu/index.php">
+					<img src="../banner_and_slide/logo24h.png" style="width: 100%;height: 50px;image-rendering: pixelated;">
+				</a>
 			</div>
 			<div id='div_menu'>
 				<?php include '../common/menu.php' ?>
@@ -60,10 +66,8 @@
 						</li>
 					</ul>
 				</li>
-
+					<?php } ?>	
 				<?php } ?>
-					
-				 <?php } ?>
 				
 				<li>
 					<a href="danh_sach_kh/index.php">Quản lí khách hàng</a>
@@ -98,6 +102,9 @@
 						</li>
 					</ul>
 				</li>
+				<!-- <li>
+					<a href="">Quản lý đơn hàng</a>
+				</li> -->
 				<li>
 					<a href="thong_ke/index.php">Thống kê</a>
 				</li>

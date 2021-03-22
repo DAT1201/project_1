@@ -12,7 +12,8 @@
 	$thu_muc_anh = '../../../anh_chi_tiet/';
 	$each = mysqli_fetch_array($result);
 ?>
-<a href="view_insert_detail.php?ma=<?php echo $ma ?>">Thêm ảnh</a>
+<p><a href="view_insert_detail.php?ma=<?php echo $ma ?>">Thêm ảnh</a></p>
+<p><a href="../index.php">Về trang quản lý tài khoản</a></p>
 <table border='1' width='100%'>
 	<tr>
 		<th width='10%'>
